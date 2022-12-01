@@ -7,12 +7,14 @@ type SlotMachineType = {
   firstList: Array<DataType>;
   secondList: Array<DataType>;
   thirdList: Array<DataType>;
+  resultToParams: (resultArr: Array<string>) => void;
 };
 
 const SlotMachine: React.FC<SlotMachineType> = ({
   firstList,
   secondList,
   thirdList,
+  resultToParams,
 }) => {
   const [resultData, setResultData] = useState<Array<string>>(["", "", ""]);
   const [firstValue, setFirstValue] = useState<string>("");
@@ -28,7 +30,8 @@ const SlotMachine: React.FC<SlotMachineType> = ({
   }, [firstValue, secondValue, thirdValue]);
 
   useEffect(() => {
-    console.log(resultData);
+    resultToParams(resultData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resultData]);
 
   const onClickRandom = () => {
@@ -117,6 +120,7 @@ const Inner = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  vertical-align: baseline;
   @media (max-width: 767px) {
     zoom: 1;
     flex-direction: column;
