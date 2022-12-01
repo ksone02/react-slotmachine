@@ -1,12 +1,13 @@
 {
-  "name": "react-slotmachine",
+  "name": "react-random-slot-machine",
   "description": "Easily create slot machine in react",
   "keywords": [
     "react",
     "slotmachine",
     "slot",
     "machine",
-    "carousel"
+    "carousel",
+    "random"
   ],
   "author": "Sangwon Kang <eksovus@gmail.com>",
   "repository": {
@@ -14,21 +15,24 @@
     "url": "git://github.com/ksone02/react-slotmachine"
   },
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "private": false,
   "module": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "dependencies": {
+    "@types/jquery": "^3.5.14",
     "@types/node": "^16.18.4",
-    "@types/react": "^18.0.25",
+    "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.9",
     "@types/styled-components": "^5.1.26",
+    "jquery": "^3.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "typescript": "^4.9.3"
   },
   "scripts": {
@@ -36,7 +40,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "npm:prepare": "rm -rf dist && mkdir dist && tsc"
+    "npm:prepare": "rmdir /s /q dist && mkdir dist && tsc"
   },
   "eslintConfig": {
     "extends": [

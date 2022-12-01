@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+[![npm version](https://badge.fury.io/js/react-random-slot-machine.svg)](https://badge.fury.io/js/react-random-slot-machine)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-random-slot-machine
 
-## Available Scripts
+> The library provides reactive slot machine components.
+> <br>Insert the desired item using props into the component and receive the result of the slot machine.
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [react-random-slot-machine](#react-random-slot-machine)
+  - [Table of contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Authors](#authors)
+  - [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To install and set up the library, run:
 
-### `npm test`
+```sh
+$ npm install react-random-slot-machine
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Or if you prefer using Yarn:
 
-### `npm run build`
+```sh
+$ yarn add react-random-slot-machine
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Example
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```tsx
+import { SlotMachine } from "react-random-slot-machine";
 
-### `npm run eject`
+const feelingArr = [
+  {
+    id: 0,
+    img: <img src="#" alt="image" />,
+    name: "JOY",
+    value: "joy",
+  },
+  {
+    id: 1,
+    img: <img src="#" alt="image" />,
+    name: "SAD",
+    value: "sad",
+  },
+];
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const App: React.FC = () => {
+  const result = (resultArr: string[]) => {
+    console.log(resultArr);
+  };
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  return (
+    <div>
+      <SlotMachine
+        firstList={feelingArr}
+        secondList={feelingArr}
+        thirdList={feelingArr}
+        resultToParams={result}
+      />
+    </div>
+  );
+};
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### parameter
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- #### firstList, secondList, thirdList:
 
-## Learn More
+```tsx
+    // id is for indexing
+    // insert item into img with ReactNode type
+    // name is shown under the img item in slot machine
+    // value is return value
+    itemList: {id: number, img: React.ReactNode, name?: string, value: string}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- #### resultToParams:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```tsx
+    // result will receive to parameter
+    resultToParams: (resultArr: Array<string>) => void;
+```
 
-### Code Splitting
+### Example Images
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![example](https://user-images.githubusercontent.com/72087183/205001798-dea12dc6-68b4-449d-b075-55a2f522903f.png)
 
-### Analyzing the Bundle Size
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Sangwon Kang** - [github](https://github.com/ksone02)
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT License](https://andreasonny.mit-license.org/2019)
