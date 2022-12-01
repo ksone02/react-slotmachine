@@ -7,7 +7,7 @@ type SlotMachineType = {
   firstList: Array<DataType>;
   secondList: Array<DataType>;
   thirdList: Array<DataType>;
-  resultToParams: (resultArr: Array<string>) => void;
+  resultToParams?: (resultArr: Array<string>) => void;
 };
 
 const SlotMachine: React.FC<SlotMachineType> = ({
@@ -30,7 +30,9 @@ const SlotMachine: React.FC<SlotMachineType> = ({
   }, [firstValue, secondValue, thirdValue]);
 
   useEffect(() => {
-    resultToParams(resultData);
+    if (resultToParams) {
+      resultToParams(resultData);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resultData]);
 
