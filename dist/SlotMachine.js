@@ -31,7 +31,9 @@ var SlotMachine = function (_a) {
         setResultData([firstValue, secondValue, thirdValue]);
     }, [firstValue, secondValue, thirdValue]);
     useEffect(function () {
-        resultToParams(resultData);
+        if (resultToParams) {
+            resultToParams(resultData);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [resultData]);
     var onClickRandom = function () {

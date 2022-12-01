@@ -15,7 +15,7 @@
     "url": "git://github.com/ksone02/react-slotmachine"
   },
   "license": "MIT",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "module": "",
   "main": "dist/index.js",
